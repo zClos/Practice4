@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.pvt.POJOs.Person" table="person" schema="dbperson">
+        <id name="personId" type="java.lang.Integer" column="person_id">
+            <generator class="increment"/>
+        </id>
+        <property name="firstName" type="java.lang.String" column="first_name"/>
+        <property name="lastName" type="java.lang.String" column="last_name"/>
+        <property name="age" type="java.lang.Integer" column="age"/>
+
+        <component name="address" lazy="true" class="com.pvt.POJOs.Address">
+            <property name="city" type="java.lang.String" column="city"/>
+            <property name="street" type="java.lang.String" column="street"/>
+            <property name="buildingNo" type="java.lang.String" column="buildingNo"/>
+            <property name="flatNo" type="java.lang.String" column="flat"/>
+        </component>
+    </class>
+</hibernate-mapping>
